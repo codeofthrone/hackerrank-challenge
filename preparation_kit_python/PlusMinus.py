@@ -1,3 +1,5 @@
+#!/bin/python3
+
 # Link: https://www.hackerrank.com/challenges/plus-minus/problem
 # Difficulty: Easy
 # Solution: Given an array of integers, calculate the fractions of its elements that are positive, negative, and are zeros.
@@ -10,6 +12,13 @@
 # 0.400000
 # 0.400000
 # 0.200000
+
+import math
+import os
+import random
+import re
+import sys
+
 
 def plusMinus(arr):
     n = len(arr)
@@ -29,3 +38,8 @@ def plusMinus(arr):
     print("{:.6f}".format(positive_count / n))
     print("{:.6f}".format(negative_count / n))
     print("{:.6f}".format(zero_count / n))
+    
+if __name__ == '__main__':
+    n = int(input().strip())
+    arr = list(map(int, input().rstrip().split()))
+    plusMinus(arr)

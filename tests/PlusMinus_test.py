@@ -36,6 +36,24 @@ class TestPlusMinus(unittest.TestCase):
     def test_mixed_elements(self):
         plusMinus([1, -1, 0, 1, -1, 0])
         self.assertEqual(self.held_output.getvalue(), "0.333333\n0.333333\n0.333333\n")
+    def test_single_positive(self):
+        plusMinus([1])
+        self.assertEqual(self.held_output.getvalue(), "1.000000\n0.000000\n0.000000\n")
 
+    def test_single_negative(self):
+        plusMinus([-1])
+        self.assertEqual(self.held_output.getvalue(), "0.000000\n1.000000\n0.000000\n")
+
+    def test_single_zero(self):
+        plusMinus([0])
+        self.assertEqual(self.held_output.getvalue(), "0.000000\n0.000000\n1.000000\n")
+
+    def test_large_numbers(self):
+        plusMinus([1000000, -1000000, 0])
+        self.assertEqual(self.held_output.getvalue(), "0.333333\n0.333333\n0.333333\n")
+
+    def test_empty_list(self):
+        with self.assertRaises(ZeroDivisionError):
+            plusMinus([])
 if __name__ == '__main__':
     unittest.main()
